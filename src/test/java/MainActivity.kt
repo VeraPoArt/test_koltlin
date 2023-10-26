@@ -23,6 +23,9 @@ import org.testng.annotations.AfterMethod
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.BeforeMethod
 import screens.Onboarding.selectRusButton
+import screens.Onboarding.nextButton
+import screens.Onboarding.selectDeliveryButton
+import screens.Onboarding.selectAddress
 
 
 open class MainActivity {
@@ -61,10 +64,13 @@ open class MainActivity {
         TimeUnit.SECONDS.sleep(10)
 
         // Проверяем выбор адреса
-        val element4 = androidDriver.findElement(AppiumBy.accessibilityId("Shop 1\n" +
-                "Невский проспект 37"))
-        element4.click()
 
+
+//        val element4 = androidDriver.findElement(AppiumBy.accessibilityId("Shop 1\n" +
+//                "Невский проспект 37"))
+//        element4.click()
+//      selectAddress
+        clickToElement(selectAddress.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         TimeUnit.SECONDS.sleep(5)
 
         // Проверяем акцию

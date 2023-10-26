@@ -15,4 +15,10 @@ object Onboarding {
             androidAccessibilityId = "Самовывоз",
             elementName = "Кнопка Самовывоз на экране"
     )
+
+    val selectAddress = ScreenConstructor(
+            androidAccessibilityId = "Shop 1\\n\" +\n" +
+                    "//                \"Невский проспект 37",
+            elementName = "Выбор адреса"
+    )
 }
