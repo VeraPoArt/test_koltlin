@@ -1,4 +1,6 @@
 import GlobalVariables.androidDriver
+import TestFunctions.clickToElement
+import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath
 import io.appium.java_client.AppiumBy
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.remote.MobileCapabilityType
@@ -16,13 +18,14 @@ import io.appium.java_client.MobileBy
 import org.openqa.selenium.By
 import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.WebElement
+import org.testng.annotations.AfterClass
+import org.testng.annotations.AfterMethod
+import org.testng.annotations.BeforeClass
+import org.testng.annotations.BeforeMethod
+import screens.Onboarding.selectRusButton
 
 
-
-
-
-
-class MainActivity {
+open class MainActivity {
     @BeforeSuite
     fun installDriver(){
         val capabilities = DesiredCapabilities()
@@ -35,12 +38,17 @@ class MainActivity {
         androidDriver = AndroidDriver(url, capabilities)
         androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
 
-        val element1 = androidDriver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Русский\"]"))
-        element1.click()
+
+// clickToElement позволяет оптимизировать код - поправить свои значения
+        clickToElement(locator = "//android.view.View[@content-desc=\"Русский\"]", locatorType = LocatorType.XPATH)
+//        val element1 = androidDriver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Русский\"]"))
+        //       element1.click()
         TimeUnit.SECONDS.sleep(5)
 
-        val element2 = androidDriver.findElement(AppiumBy.accessibilityId("Далее"))
-        element2.click()
+        clickToElement(selectRusButton.androidXPath, LocatorType.XPATH)
+
+//        val element2 = androidDriver.findElement(AppiumBy.accessibilityId("Далее"))
+//        element2.click()
 
         TimeUnit.SECONDS.sleep(5)
 
@@ -135,7 +143,6 @@ class MainActivity {
             element11.click()
             TimeUnit.SECONDS.sleep(7)
 
-
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             e.printStackTrace()
             println("Мы поймали ошибку, и теперь тест не упадет")
@@ -170,6 +177,30 @@ class MainActivity {
     fun testOne(){
         println("Тест запущен")
         TimeUnit.SECONDS.sleep(10)
+    }
+
+    @BeforeClass
+    fun beforeClass(){
+
+    }
+
+    @AfterClass
+    fun afterClass(){
+
+    }
+
+    @BeforeMethod
+    fun launceApp(){
+        androidDriver.activateApp(BUNDLE_ID)
+        TimeUnit.SECONDS.sleep(10)
+    }
+    @AfterMethod
+    fun closeApp(){
+        androidDriver.terminateApp(BUNDLE_ID)
+    }
+
+    companion object {
+        const val BUNDLE_ID = "starter.school.client"
     }
 
 }
