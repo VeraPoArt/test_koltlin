@@ -52,8 +52,11 @@ open class MainActivity {
 
         TimeUnit.SECONDS.sleep(5)
 
-        val element3 = androidDriver.findElement(AppiumBy.accessibilityId("Самовывоз"))
-        element3.click()
+
+        clickToElement(selectDeliveryButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+
+//        val element3 = androidDriver.findElement(AppiumBy.accessibilityId("Самовывоз"))
+//        element3.click()
 
         TimeUnit.SECONDS.sleep(10)
 
