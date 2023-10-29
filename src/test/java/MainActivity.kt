@@ -15,17 +15,18 @@ import org.openqa.selenium.interactions.PointerInput
 import org.openqa.selenium.interactions.Sequence
 import java.util.Arrays
 import io.appium.java_client.MobileBy
+import io.appium.java_client.remote.AndroidMobileCapabilityType
+import io.appium.java_client.remote.MobileCapabilityType.NO_RESET
 import org.openqa.selenium.By
 import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.WebElement
-import org.testng.annotations.AfterClass
-import org.testng.annotations.AfterMethod
-import org.testng.annotations.BeforeClass
-import org.testng.annotations.BeforeMethod
-import screens.Onboarding.selectRusButton
-import screens.Onboarding.nextButton
-import screens.Onboarding.selectDeliveryButton
+import org.testng.annotations.*
+import screens.Onboarding.*
 import screens.Onboarding.selectAddress
+import screens.Onboarding.selectDeliveryButton
+import screens.Onboarding.selectPromo
+import screens.Onboarding.selectRusButton
+import screens.TestFunctions.navigateToMainScreen
 
 
 open class MainActivity {
@@ -37,60 +38,26 @@ open class MainActivity {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel")
         capabilities.setCapability(MobileCapabilityType.APP, "/Users/heads/apps/app-profile.apk")
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2")
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "starter.school.client")
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "starter.school.client.MainActivity")
+        capabilities.setCapability(NO_RESET, true)
+
+
         val url = URL("http://127.0.0.1:4723/")
         androidDriver = AndroidDriver(url, capabilities)
         androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
 
 
-// clickToElement позволяет оптимизировать код - поправить свои значения
-        clickToElement(locator = "//android.view.View[@content-desc=\"Русский\"]", locatorType = LocatorType.XPATH)
-//        val element1 = androidDriver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Русский\"]"))
-        //       element1.click()
-        TimeUnit.SECONDS.sleep(5)
 
-        clickToElement(selectRusButton.androidXPath, LocatorType.XPATH)
-
-//        val element2 = androidDriver.findElement(AppiumBy.accessibilityId("Далее"))
-//        element2.click()
-
-        TimeUnit.SECONDS.sleep(5)
+        navigateToMainScreen()
 
 
-        clickToElement(selectDeliveryButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-
-//        val element3 = androidDriver.findElement(AppiumBy.accessibilityId("Самовывоз"))
-//        element3.click()
-
-        TimeUnit.SECONDS.sleep(10)
-
-        // Проверяем выбор адреса
+/*
 
 
-//        val element4 = androidDriver.findElement(AppiumBy.accessibilityId("Shop 1\n" +
-//                "Невский проспект 37"))
-//        element4.click()
-//      selectAddress
-        clickToElement(selectAddress.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        TimeUnit.SECONDS.sleep(5)
 
-        // Проверяем акцию
-        val element5 = androidDriver.findElement(AppiumBy.accessibilityId("Встречайте новинку: Пепперони с чили"))
-        element5.click()
-        TimeUnit.SECONDS.sleep(5)
-
-
-        // Возвращаемся на предыдущую страницу
-        androidDriver.navigate().back()
-        TimeUnit.SECONDS.sleep(5)
-
-
-        // Выбираем закуски
-        val element6 = androidDriver.findElement(AppiumBy.accessibilityId("Закуски"))
-        element6.click()
-        TimeUnit.SECONDS.sleep(10)
-
-
-        fun tapByCoordinates(driver: AndroidDriver, x: Int, y: Int) {
+*/
+/*        fun tapByCoordinates(driver: AndroidDriver, x: Int, y: Int) {
             val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
 
             val move = finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y)
@@ -103,7 +70,8 @@ open class MainActivity {
             sequence.addAction(release) // Then release
 
             driver.perform(Arrays.asList(sequence))
-        }
+        }*//*
+
 
         // кладем выбранную позицию
         tapByCoordinates(androidDriver, 153, 1038)
@@ -133,6 +101,7 @@ open class MainActivity {
 
 
         // вводим номер телефона
+
         val element7 = androidDriver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Укажите телефон\n" +
                 "На него отправим код подтверждения\"]/android.widget.EditText"))
         element7.sendKeys("9992092278")
@@ -173,6 +142,7 @@ open class MainActivity {
 
         // Вводим код в найденное поле ввода
         inputField.sendKeys(code)
+*/
 
 
     }
