@@ -33,25 +33,24 @@ import screens.TestFunctions.inputCode
 
 
 class TestSPhoneCodeInput : MainActivity() {
-}
-@Test
-fun testOne(){
-    println("Извлекаем код смс")
 
-    // извлекаем код смс
-    clickToElement(sPhoneCodeInput.androidXPath, LocatorType.XPATH)
-    TimeUnit.SECONDS.sleep(5)
+    @Test
+    fun testOne() {
+        println("Извлекаем код смс")
 
-    println(onboardingData.fullText)
-    println(onboardingData.regex)
-    println(onboardingData.matchResult)
-    println(onboardingData.code)
-    println(onboardingData.inputField)
+        // извлекаем код смс
+        clickToElement(sPhoneCodeInput.androidXPath, LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(5)
 
-
-    inputCode(onboardingData)
+        println(onboardingData.fullText)
+        println(onboardingData.regex)
+        println(onboardingData.matchResult)
+        println(onboardingData.code)
+        println(onboardingData.inputField)
 
 
+        inputCode(onboardingData)
 
 
+    }
 }

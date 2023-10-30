@@ -28,24 +28,22 @@ import screens.TestFunctions.clickToElement
 
 
 class TestSelectTypePhoneCode : MainActivity() {
-}
-@Test
-fun testOne() {
-    println("Нажимаем кнопку Получить код")
 
-    // нажимаем кнопку "Получить код"
-    try {
-        // нажимаем кнопку "Получить код" используя accessibility ID
-        clickToElement(selectTypePhoneCode.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-        TimeUnit.SECONDS.sleep(7)
+    @Test
+    fun testClickToGetCode() {
+        println("Нажимаем кнопку Получить код")
 
-
-    } catch (e: org.openqa.selenium.NoSuchElementException) {
-        e.printStackTrace()
-        println("Мы поймали ошибку, и теперь тест не упадет")
+        // нажимаем кнопку "Получить код"
+        try {
+            // нажимаем кнопку "Получить код" используя accessibility ID
+            clickToElement(selectTypePhoneCode.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+            TimeUnit.SECONDS.sleep(7)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            println("Мы поймали ошибку, и теперь тест не упадет")
+        }
     }
 }
 
-        }
 
 

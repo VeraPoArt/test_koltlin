@@ -18,12 +18,12 @@ import screens.Onboarding.selectAddress
 import screens.Onboarding.selectDeliveryButton
 import screens.Onboarding.selectRusButton
 
-class TestClassOne : MainActivity() {
-}
-@Test
-fun testOne(){
-    println("Тест запущен")
-    clickToElement(selectDeliveryButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-    TimeUnit.SECONDS.sleep(10)
+class TestDeliveryButton : MainActivity() {
+    @Test
+    fun testOne(){
+        println("Тест запущен")
+        clickToElement(selectDeliveryButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        TimeUnit.SECONDS.sleep(10)
 
+    }
 }

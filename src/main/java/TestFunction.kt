@@ -65,13 +65,6 @@ object TestFunctions {
         data.inputField.sendKeys(data.code)
     }
 
-/*
-    fun code() {
-        val onboarding = OnboardingData()  // Создаем экземпляр класса OnboardingData
-        onboarding.inputCode()             // Вызываем функцию inputCode для этого экземпляра
-    }
-*/
-
 
     fun tapByCoordinates(x: Int, y: Int) {
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
