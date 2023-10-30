@@ -30,7 +30,7 @@ import screens.TestFunctions.clickToElement
 class TestSelectTypePhoneCode : MainActivity() {
 
     @Test
-    fun testClickToGetCode() {
+    fun testSelectTypePhoneCode() {
         println("Нажимаем кнопку Получить код")
 
         // нажимаем кнопку "Получить код"

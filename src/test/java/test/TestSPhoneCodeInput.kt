@@ -35,7 +35,7 @@ import screens.TestFunctions.inputCode
 class TestSPhoneCodeInput : MainActivity() {
 
     @Test
-    fun testOne() {
+    fun testSPhoneCodeInput () {
         println("Извлекаем код смс")
 
         // извлекаем код смс

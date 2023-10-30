@@ -15,7 +15,7 @@ import screens.TestFunctions.clickToElement
 class TestSelectAddress : MainActivity() {
 
     @Test
-    fun testOne() {
+    fun testSelectAddress() {
         println("Адрес выбран")
         clickToElement(selectAddress.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         TimeUnit.SECONDS.sleep(5)

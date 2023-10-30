@@ -16,7 +16,7 @@ import screens.TestFunctions.tapByCoordinates
 class TestSelectSnacks : MainActivity() {
 
     @Test
-    fun testOne() {
+    fun testSelectSnacks () {
         println("Выбор закуски")
         clickToElement(selectSnacks.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         TimeUnit.SECONDS.sleep(5)

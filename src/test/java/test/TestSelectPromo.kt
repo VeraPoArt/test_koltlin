@@ -17,7 +17,7 @@ import screens.TestFunctions.clickToElement
 class TestSelectPromo : MainActivity() {
 
     @Test
-    fun testOne() {
+    fun testSelectPromo () {
         println("Акция")
         clickToElement(selectPromo.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         androidDriver.navigate().back()

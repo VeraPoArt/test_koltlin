@@ -18,10 +18,8 @@ import screens.TestFunctions.clickToElement
 class TestClassOne : MainActivity() {
 
     @Test
-    fun testOne() {
+    fun testClassOne() {
         println("Тест запущен")
-        clickToElement(locator = "//android.view.View[@content-desc=\"Русский\"]", locatorType = LocatorType.XPATH)
-        TimeUnit.SECONDS.sleep(10)
 
         clickToElement(selectRusButton.androidXPath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(5)
