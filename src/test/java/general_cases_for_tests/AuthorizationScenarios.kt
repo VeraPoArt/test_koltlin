@@ -2,23 +2,13 @@ package general_cases_for_tests
 
 import GlobalVariable.androidDriver
 import LocatorType
-import TestFunctions.checkAvailableElement
-import TestFunctions.clickToElement
-import TestFunctions.sendText
-import screens.AuthorizationScreen
 import screens.MainScreen.butExit
 import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
-import screens.MainScreen.buttonMenu
-import screens.MainScreen.buttonProfile
 import screens.Onboarding
 import screens.Onboarding.selectTypePhone
 import screens.Onboarding.selectTypePhoneCode
-import screens.Profile.authPerson
 import screens.Profile.phoneNumberElement
-import screens.ProfileScreen.authorizationPerson
-import screens.ProfileScreen.buttonEnter
-import screens.ProfileScreen.buttonExit
 import screens.TestFunctions
 import screens.TestFunctions.checkAvailableElement
 import screens.TestFunctions.clickToElement

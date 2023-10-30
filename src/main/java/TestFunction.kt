@@ -13,18 +13,6 @@ import GlobalVariable.androidDriver
 import LocatorType
 import TestFunctions.clickToElement
 import TestFunctions.sendText
-import screens.AuthorizationScreen.buttonGetCode
-import screens.AuthorizationScreen.enterCode
-import screens.AuthorizationScreen.enterPhone
-import screens.MainScreen
-import screens.MainScreen.butProfile
-import screens.Onboarding.butEnter
-import screens.Onboarding.sPhoneCodeInput
-import screens.Onboarding.selectTypePhone
-import screens.Onboarding.selectTypePhoneCode
-import screens.ProfileScreen.buttonEnter
-import screens.TestFunctions.clickToElement
-import screens.TestFunctions.sendText
 import test.TestSPhoneCodeInput
 import java.util.concurrent.TimeUnit
 

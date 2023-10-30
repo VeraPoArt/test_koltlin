@@ -8,14 +8,6 @@ import Delivery_adress.inputFloor
 import Delivery_adress.inputKv
 import Delivery_adress.inputParadnaya
 import LocatorType
-import TestFunctions.clickToElement
-import TestFunctions.sendText
-import TestFunctions.tapByCoordinates
-import screens.DeliveryScreen.windowApartment
-import screens.DeliveryScreen.windowComment
-import screens.DeliveryScreen.windowEntrance
-import screens.DeliveryScreen.windowFloor
-import screens.DeliveryScreen.windowIntercom
 import screens.TestFunctions.clickToElement
 import screens.TestFunctions.sendText
 import screens.TestFunctions.swipeOnScreen

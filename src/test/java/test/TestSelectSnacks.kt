@@ -7,7 +7,6 @@ import org.testng.annotations.Test
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeUnit
 import org.testng.annotations.*
-import screens.Onboarding
 import screens.Onboarding.*
 import screens.Onboarding.selectSnacks
 import screens.TestFunctions.clickToElement
