@@ -21,11 +21,12 @@ import screens.TestFunctions.clickToElement
 
 
 class TestSelectPromo : MainActivity() {
-}
-@Test
-fun testOne(){
-    println("Акция")
-    clickToElement(selectPromo.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-    androidDriver.navigate().back()
-    TimeUnit.SECONDS.sleep(5)
+
+    @Test
+    fun testOne() {
+        println("Акция")
+        clickToElement(selectPromo.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        androidDriver.navigate().back()
+        TimeUnit.SECONDS.sleep(5)
+    }
 }

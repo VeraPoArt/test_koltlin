@@ -18,10 +18,11 @@ import screens.TestFunctions.clickToElement
 
 
 class TestSelectAddress : MainActivity() {
-}
-@Test
-fun testOne(){
-    println("Адрес выбран")
-    clickToElement(selectAddress.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-    TimeUnit.SECONDS.sleep(5)
+
+    @Test
+    fun testOne() {
+        println("Адрес выбран")
+        clickToElement(selectAddress.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        TimeUnit.SECONDS.sleep(5)
+    }
 }

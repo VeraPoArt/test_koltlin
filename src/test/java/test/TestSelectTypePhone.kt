@@ -27,14 +27,15 @@ import screens.TestFunctions.clickToElement
 
 
 class TestSelectTypePhone : MainActivity() {
-}
-@Test
-fun testOne(){
-    println("Вводим номер телефона")
 
-    // вводим номер телефона
-    clickToElement(selectTypePhone.androidXPath, LocatorType.XPATH)
-    TimeUnit.SECONDS.sleep(5)
-    selectTypePhone.sendKeys("9992092278")
+    @Test
+    fun testOne() {
+        println("Вводим номер телефона")
 
+        // вводим номер телефона
+        clickToElement(selectTypePhone.androidXPath, LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(5)
+        selectTypePhone.sendKeys("9992092278")
+
+    }
 }

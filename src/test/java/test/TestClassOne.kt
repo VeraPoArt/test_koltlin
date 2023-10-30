@@ -22,18 +22,19 @@ import screens.Onboarding.selectRusButton
 import screens.ScreenConstructor
 import screens.TestFunctions.clickToElement
 
-class TestAuthorization : MainActivity() {
+class TestClassOne : MainActivity() {
 
-@Test
-fun testOne(){
-    println("Тест запущен")
-    clickToElement(locator = "//android.view.View[@content-desc=\"Русский\"]", locatorType = LocatorType.XPATH)
-    TimeUnit.SECONDS.sleep(10)
+    @Test
+    fun testOne() {
+        println("Тест запущен")
+        clickToElement(locator = "//android.view.View[@content-desc=\"Русский\"]", locatorType = LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(10)
 
-    clickToElement(selectRusButton.androidXPath, LocatorType.XPATH)
-    TimeUnit.SECONDS.sleep(5)
+        clickToElement(selectRusButton.androidXPath, LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(5)
 
-    clickToElement(nextButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
-    TimeUnit.SECONDS.sleep(5)
+        clickToElement(nextButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        TimeUnit.SECONDS.sleep(5)
 
+    }
 }

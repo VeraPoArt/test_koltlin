@@ -8,8 +8,10 @@ import screens.AuthorizationScreen.buttonGetCode
 import screens.AuthorizationScreen.enterCode
 import screens.AuthorizationScreen.enterPhone
 import screens.MainScreen
+import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
 import screens.MainScreen.buttonProfile
+import screens.Onboarding
 import screens.Onboarding.butEnter
 import screens.Onboarding.sPhoneCodeInput
 import screens.Onboarding.selectTypePhone
@@ -25,7 +27,7 @@ object Authorization {
         clickToElement(butProfile.androidXPath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(7)
 
-        clickToElement(butEnter.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(Onboarding.butEnter.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
         TimeUnit.SECONDS.sleep(7)
 
         sendText(selectTypePhone.androidXPath, LocatorType.XPATH, phoneNumber)
@@ -37,6 +39,9 @@ object Authorization {
         clickToElement(sPhoneCodeInput.androidXPath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(10)
 
-        clickToElement(MainScreen.butMenu.androidXPath, LocatorType.XPATH)
+        clickToElement(butMenu.androidXPath, LocatorType.XPATH)
+
+        // SessionState и данные
+
     }
 }
