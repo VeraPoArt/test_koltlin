@@ -82,7 +82,7 @@ object AuthorizationScenarios {
                     enterCode.androidClassName,
                     LocatorType.CLASS_NAME,
                     enterCode.iosClassName,
-                    LocatorType.CLASS_NAME)
+                    LocatorType.CLASS_NAME,
                     text.substring(
                         text.indexOf("Введите код из смс&#10;") + 23,
                         text.indexOf("&#10;+7 (999) 209-22-78&")))
