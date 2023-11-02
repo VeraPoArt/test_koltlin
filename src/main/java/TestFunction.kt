@@ -193,7 +193,7 @@ object TestFunctions {
         try {
 
             clickToElement(locatorAndroid = "//android.view.View[@content-desc=\"Русский\"]", locatorTypeAndroid = LocatorType.XPATH,
-                locatorIOS: String, locatorTypeIOS: LocatorType);
+                locatorIOS: "", locatorTypeIOS: "");
             TimeUnit.SECONDS.sleep(10)
 
             clickToElement(locatorAndroid = Onboarding.selectRusButton.androidXpath, locatorTypeAndroid = LocatorType.XPATH,

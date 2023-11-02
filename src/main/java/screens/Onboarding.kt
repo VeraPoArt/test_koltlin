@@ -1,6 +1,5 @@
 package screens
 
-import io.appium.java_client.AppiumBy
 
 object Onboarding {
     val selectRusButton = ScreenConstructor(
@@ -79,6 +78,7 @@ object Onboarding {
         iosAccessibilityId = "",
         elementName = "Кнопка Войти"
     )
+
     val enterPhone = ScreenConstructor (
         androidXpath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
                 "На него отправим код подтверждения\"]/android.widget.EditText",

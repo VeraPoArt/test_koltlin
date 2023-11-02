@@ -1,7 +1,5 @@
-import LocatorType
 import screens.ScreenConstructor
 
-import java.util.concurrent.TimeUnit
 
 object Delivery_adress {
 

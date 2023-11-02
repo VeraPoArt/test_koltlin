@@ -8,11 +8,11 @@ import Delivery_adress.inputFloor
 import Delivery_adress.inputKv
 import Delivery_adress.inputParadnaya
 import LocatorType
-import screens.TestFunctions.clickToElement
-import screens.TestFunctions.findElement
-import screens.TestFunctions.sendText
-import screens.TestFunctions.swipeOnScreen
-import screens.TestFunctions.tapByCoordinates
+import TestFunctions.clickToElement
+import TestFunctions.sendText
+import findElement
+
+import tapByCoordinates
 import java.util.concurrent.TimeUnit
 
 object Address {
@@ -21,29 +21,29 @@ object Address {
         tapByCoordinates(500, 1300)
         TimeUnit.SECONDS.sleep(10)
 
-        clickToElement(inputKv.androidXPath, LocatorType.XPATH)
+        clickToElement(inputKv.androidXpath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(5)
-        sendText(inputKv.androidXPath, LocatorType.XPATH, "13")
-        TimeUnit.SECONDS.sleep(5)
-
-        clickToElement(inputCodeParad.androidXPath, LocatorType.XPATH)
-        TimeUnit.SECONDS.sleep(5)
-        sendText(inputCodeParad.androidXPath, LocatorType.XPATH, "123")
+        sendText(inputKv.androidXpath, LocatorType.XPATH, "13")
         TimeUnit.SECONDS.sleep(5)
 
-        clickToElement(inputParadnaya.androidXPath, LocatorType.XPATH)
+        clickToElement(inputCodeParad.androidXpath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(5)
-        sendText(inputParadnaya.androidXPath, LocatorType.XPATH, "2")
-        TimeUnit.SECONDS.sleep(5)
-
-        clickToElement(inputComment.androidXPath, LocatorType.XPATH)
-        TimeUnit.SECONDS.sleep(5)
-        sendText(inputComment.androidXPath, LocatorType.XPATH, "Спасибо за доставку")
+        sendText(inputCodeParad.androidXpath, LocatorType.XPATH, "123")
         TimeUnit.SECONDS.sleep(5)
 
-        clickToElement(inputFloor.androidXPath, LocatorType.XPATH)
+        clickToElement(inputParadnaya.androidXpath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(5)
-        sendText(inputFloor.androidXPath, LocatorType.XPATH, "1")
+        sendText(inputParadnaya.androidXpath, LocatorType.XPATH, "2")
+        TimeUnit.SECONDS.sleep(5)
+
+        clickToElement(inputComment.androidXpath, LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(5)
+        sendText(inputComment.androidXpath, LocatorType.XPATH, "Спасибо за доставку")
+        TimeUnit.SECONDS.sleep(5)
+
+        clickToElement(inputFloor.androidXpath, LocatorType.XPATH)
+        TimeUnit.SECONDS.sleep(5)
+        sendText(inputFloor.androidXpath, LocatorType.XPATH, "1")
         TimeUnit.SECONDS.sleep(5)
     }
 
@@ -63,12 +63,7 @@ object Address {
         val point = element.location
         val size = element.size
 
-        swipeOnScreen(
-            point.x + size.width/2,
-            point.y + size.height/2,
-            point.x,
-            point.y + size.height/2
-        )
+    swipeOnScreen(point.x + size.width/2, point.y + size.height/2, point.x, point.y + size.height/2)
     }
 
     fun swipeElementToDown (locator : String, locatorType: LocatorType) {

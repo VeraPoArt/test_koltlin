@@ -18,10 +18,10 @@ import java.util.concurrent.TimeUnit
 object Authorization {
 
     fun authorization(phoneNumber: String) {
-        clickToElement(butProfile.androidXpath, LocatorType.XPATH)
+        clickToElement(butProfile.androidXpath, LocatorType.XPATH, locatorIOS: "", locatorTypeIOS: "")
         TimeUnit.SECONDS.sleep(7)
 
-        clickToElement(Onboarding.butEnter.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(Onboarding.butEnter.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID, locatorIOS: "", locatorTypeIOS: "")
         TimeUnit.SECONDS.sleep(7)
 
         val phone = "9992092278"
