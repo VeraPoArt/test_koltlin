@@ -31,8 +31,23 @@ object TestFunctions {
         element.click()
     }
 
-    fun sendText (locatorAndroid: String, locatorTypeAndroid: LocatorType, text: String) {
-        chooseLocator (locatorAndroid, locatorTypeAndroid).sendKeys(text)
+    fun sendText(
+        locatorAndroid: String, locatorTypeAndroid: LocatorType,
+        locatorIOS: String, locatorTypeIOS: LocatorType, text: String)
+    {
+        val finalLocator: String
+        val finalLocatorType: LocatorType
+        if (platformType == TypeOS.ANDROID) {
+            finalLocator = locatorAndroid
+            finalLocatorType = locatorTypeAndroid
+        } else {
+            finalLocator = locatorIOS
+            finalLocatorType = locatorTypeIOS
+        }
+        val element = findElement(finalLocator, finalLocatorType)
+        element.sendKeys(text)
+
+
     }
     fun checkAvailableElement(
         locatorAndroid: String,
@@ -46,8 +61,20 @@ object TestFunctions {
             locatorIOS, locatorTypeIOS
         ).isEnabled
     }
-    fun clearField(locator: String,locatorType: LocatorType) {
-        val element = findElement(locator, locatorType)
+    fun clearField(
+        locatorAndroid: String, locatorTypeAndroid: LocatorType,
+        locatorIOS: String, locatorTypeIOS: LocatorType)
+    {
+        val finalLocator: String
+        val finalLocatorType: LocatorType
+        if (platformType == TypeOS.ANDROID) {
+            finalLocator = locatorAndroid
+            finalLocatorType = locatorTypeAndroid
+        } else {
+            finalLocator = locatorIOS
+            finalLocatorType = locatorTypeIOS
+        }
+        val element = findElement(finalLocator, finalLocatorType)
         element.clear()
     }
 
