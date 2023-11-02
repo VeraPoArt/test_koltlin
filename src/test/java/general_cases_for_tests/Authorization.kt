@@ -6,10 +6,8 @@ import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
 import screens.Onboarding
 import screens.Onboarding.enterCode
-import screens.Onboarding.sPhoneCodeInput
 import screens.Onboarding.selectTypePhone
 import screens.Onboarding.selectTypePhoneCode
-import screens.Onboarding.inputFieldScreen
 import screens.TestFunctions.clickToElement
 import screens.TestFunctions.sendText
 import java.util.concurrent.TimeUnit

@@ -1,5 +1,6 @@
 package screens
 import GlobalVariables.androidDriver
+import GlobalVariables.platformType
 import org.openqa.selenium.WebElement
 import io.appium.java_client.AppiumBy
 import org.openqa.selenium.interactions.Pause
@@ -12,8 +13,21 @@ import java.util.concurrent.TimeUnit
 
 object TestFunctions {
 
-    fun clickToElement (locator: String, locatorType: LocatorType) {
-        val element = findElement(locator, locatorType)
+    fun clickToElement (
+        locatorAndroid: String, locatorTypeAndroid: LocatorType,
+        locatorIOS: String, locatorTypeIOS: LocatorType
+    ) {
+        val finalLocator: String
+        val finalLocatorType: LocatorType
+        if (platformType == TypeOS.ANDROID) {
+            finalLocator = locatorAndroid
+            finalLocatorType = locatorTypeAndroid
+        } else {
+            finalLocator = locatorIOS
+            finalLocatorType = locatorTypeIOS
+        }
+
+        val element = findElement(finalLocator, finalLocatorType)
         element.click()
     }
 

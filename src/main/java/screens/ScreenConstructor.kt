@@ -1,9 +1,13 @@
 package screens
 
 data class ScreenConstructor(
-        val androidAccessibilityId: String = "",
+        var androidAccessibilityId: String = "",
         val androidId: String = "",
-        val androidXPath: String = "",
-        val elementName: String = "",
-        val androidClassName: String = ""
+        val androidXpath: String = "",
+        val iosAccessibilityId: String = "",
+        val iosId: String = "",
+        val iosXpath: String = "",
+        val iosClassChain: String = "",
+        val iosPredicateSting: String = "",
+        val elementName: String = ""
 )

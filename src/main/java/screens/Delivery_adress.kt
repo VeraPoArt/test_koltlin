@@ -8,6 +8,8 @@ object Delivery_adress {
 
         val butAddress = ScreenConstructor (
                 androidAccessibilityId = "Добавить новый адрес",
+                iosAccessibilityId = "Добавить новый адрес",
+
                 elementName = "Добавить адрес")
 
         val inputAddress = ScreenConstructor (

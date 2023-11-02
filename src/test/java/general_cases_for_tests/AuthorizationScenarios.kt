@@ -2,17 +2,12 @@ package general_cases_for_tests
 
 import GlobalVariables.androidDriver
 import LocatorType
-import org.apache.commons.lang3.StringUtils.indexOf
-import org.apache.commons.lang3.StringUtils.substring
 import screens.MainScreen.butExit
 import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
-import screens.Onboarding
 import screens.Onboarding.butEnter
 import screens.Onboarding.enterCode
 import screens.Onboarding.enterPhone
-import screens.Onboarding.selectTypePhone
-import screens.Onboarding.selectTypePhoneCode
 import screens.Profile.phoneNumberElement
 import screens.TestFunctions.checkAvailableElement
 import screens.TestFunctions.clickToElement
@@ -92,16 +87,15 @@ object AuthorizationScenarios {
                 clickToElement(
                     butExit.androidAccessibilityId,
                     LocatorType.ACCESSIBILITY_ID,
-                    butExit.iosAccessibilityId,
-                    LocatorType.ACCESSIBILITY_ID
+                    butExit.iosAccessibilityId
                 )
                 TimeUnit.SECONDS.sleep(5)
 
                 clickToElement(
                     butMenu.androidXPath,
                     LocatorType.XPATH,
-                    butMenu.iosClassChain,
-                    LocatorType.IOS_CLASS_CHAIN)
+                    butMenu.iosClassChain
+                )
                 TimeUnit.SECONDS.sleep(5)
             }
 
@@ -111,8 +105,8 @@ object AuthorizationScenarios {
                 clickToElement(
                     butMenu.androidXPath,
                     LocatorType.XPATH,
-                    butMenu.iosClassChain,
-                    LocatorType.IOS_CLASS_CHAIN)
+                    butMenu.iosClassChain
+                )
                 TimeUnit.SECONDS.sleep(5)
             }
         }

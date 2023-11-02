@@ -4,10 +4,7 @@ import MainActivity
 import org.testng.annotations.Test
 import java.util.concurrent.TimeUnit
 import LocatorType
-import org.openqa.selenium.WebElement
-import org.testng.annotations.*
 import screens.Onboarding.nextButton
-import screens.Onboarding.selectAddress
 import screens.Onboarding.selectDeliveryButton
 import screens.Onboarding.selectRusButton
 import screens.TestFunctions.clickToElement
