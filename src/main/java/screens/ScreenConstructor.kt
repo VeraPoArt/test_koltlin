@@ -11,6 +11,7 @@ data class ScreenConstructor(
         val iosId: String = "",
         val iosXpath: String = "",
         val iosClassChain: String = "",
+        val iosClassName: String = "",
         val iosPredicateSting: String = "",
         val elementName: String = ""
 )

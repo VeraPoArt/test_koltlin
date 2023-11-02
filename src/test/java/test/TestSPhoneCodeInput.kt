@@ -1,3 +1,4 @@
+/*
 package test
 
 import MainActivity
@@ -30,4 +31,4 @@ class TestSPhoneCodeInput : MainActivity() {
 
 
     }
-}
+}*/

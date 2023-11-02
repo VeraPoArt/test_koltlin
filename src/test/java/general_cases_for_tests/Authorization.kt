@@ -13,8 +13,6 @@ import screens.Onboarding
 import screens.Onboarding.enterCode
 import screens.Onboarding.selectTypePhone
 import screens.Onboarding.selectTypePhoneCode
-import screens.TestFunctions.clickToElement
-import screens.TestFunctions.sendText
 import java.util.concurrent.TimeUnit
 
 object Authorization {

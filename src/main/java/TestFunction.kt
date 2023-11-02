@@ -9,6 +9,7 @@ import io.appium.java_client.AppiumBy
 import org.openqa.selenium.interactions.Pause
 import org.openqa.selenium.interactions.PointerInput
 import org.openqa.selenium.interactions.Sequence
+import screens.Onboarding
 import java.time.Duration.ofMillis
 
 import java.util.concurrent.TimeUnit
@@ -190,16 +191,21 @@ object TestFunctions {
 
     fun navigateToMainScreen() {
         try {
-            clickToElement(locator = "//android.view.View[@content-desc=\"Русский\"]", locatorType = LocatorType.XPATH)
+
+            clickToElement(locatorAndroid = "//android.view.View[@content-desc=\"Русский\"]", locatorTypeAndroid = LocatorType.XPATH,
+                locatorIOS: String, locatorTypeIOS: LocatorType);
             TimeUnit.SECONDS.sleep(10)
 
-            clickToElement(Onboarding.selectRusButton.androidXPath, LocatorType.XPATH)
+            clickToElement(locatorAndroid = Onboarding.selectRusButton.androidXpath, locatorTypeAndroid = LocatorType.XPATH,
+                locatorIOS: String, locatorTypeIOS: LocatorType)
             TimeUnit.SECONDS.sleep(10)
 
-            clickToElement(Onboarding.nextButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+            clickToElement(locatorAndroid = Onboarding.nextButton.androidAccessibilityId, locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+                locatorIOS: String, locatorTypeIOS: LocatorType)
             TimeUnit.SECONDS.sleep(10)
 
-            clickToElement(Onboarding.selectDeliveryButton.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+            clickToElement(locatorAndroid = Onboarding.selectDeliveryButton.androidAccessibilityId, locatorTypeAndroid = LocatorType.ACCESSIBILITY_ID,
+                locatorIOS: String, locatorTypeIOS: LocatorType)
             TimeUnit.SECONDS.sleep(10)
 
         } catch (e: Exception) {

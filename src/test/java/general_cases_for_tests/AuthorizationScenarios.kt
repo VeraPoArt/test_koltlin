@@ -60,7 +60,7 @@ object AuthorizationScenarios {
                     sendText(
                         enterPhone.androidXpath,
                         LocatorType.XPATH,
-                        enterPhone.iosClassChain,
+                        enterPhone.iosClassName,
                         LocatorType.CLASS_NAME,
                         phone[i].toString()
                     )

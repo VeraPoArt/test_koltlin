@@ -1,3 +1,4 @@
+/*
 package screens
 
 import screens.Onboarding.sPhoneCodeInput
@@ -20,3 +21,4 @@ class OnboardingData {
 
 }
 
+*/

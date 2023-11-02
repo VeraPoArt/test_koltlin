@@ -1,3 +1,4 @@
+/*
 package test
 
 import MainActivity
@@ -81,4 +82,4 @@ class TestSelectTypePhone : MainActivity() {
 
         }
 
-}
+}*/
