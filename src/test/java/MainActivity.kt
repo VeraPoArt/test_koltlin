@@ -1,6 +1,4 @@
 import GlobalVariables.androidDriver
-import TestFunctions.clickToElement
-import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath
 import io.appium.java_client.AppiumBy
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.remote.MobileCapabilityType
@@ -21,11 +19,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.WebElement
 import org.testng.annotations.*
-import screens.Onboarding.*
-import screens.Onboarding.selectAddress
-import screens.Onboarding.selectDeliveryButton
-import screens.Onboarding.selectPromo
-import screens.Onboarding.selectRusButton
+
 import screens.TestFunctions.navigateToMainScreen
 
 

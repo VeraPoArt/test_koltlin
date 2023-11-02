@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite for Android">
+    <parameter name="paramPlatformName" value="ANDROID"/>
+    <parameter name="paramPlatformVersion" value="14.0"/>
+    <parameter name="paramDeviceName" value="Pixel"/>
+    <parameter name="paramUDID" value=""/>
+    <parameter name="paramTimeToSearchElement" value="6"/>
+    <parameter name="paramPathToApp" value="/Users/heads/apps/app-profile.apk"/>
+    <test verbose="2" preserve-order="true" name="Android tests" parallel="none">
+        <classes>
+            <class name="good_test.TestClassOne"/>
+            <class name="good_test.TestDeliveryButton"/>
+            <class name="good_test.TestNeedAuth">
+                <methods>
+                    <include name="testsOne"/>
+                    <include name="testsTwo"/>
+                    <include name="testsThree"/>
+                    <include name="testsFour"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

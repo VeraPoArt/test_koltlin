@@ -1,14 +1,11 @@
-package test
+package good_test
 
 import MainActivity
 import org.testng.annotations.Test
 import java.util.concurrent.TimeUnit
 import LocatorType
-import TestFunctions.clickToElement
-import java.util.concurrent.TimeUnit
 import org.openqa.selenium.WebElement
 import org.testng.annotations.*
-import screens.Onboarding.*
 import screens.Onboarding.nextButton
 import screens.Onboarding.selectAddress
 import screens.Onboarding.selectDeliveryButton

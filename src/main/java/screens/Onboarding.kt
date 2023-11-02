@@ -46,10 +46,21 @@ object Onboarding {
         elementName = "Получить код"
     )
 
+    val enterCode = ScreenConstructor (
+        androidClassName = "android.widget.EditText",
+        elementName = "Поле ввода кода авторизации"
+    )
+
     val sPhoneCodeInput = ScreenConstructor(
         androidXPath = "//android.view.View[contains(@content-desc, 'Введите код из смс')]",
         elementName = "Код смс"
     )
+
+    val inputFieldScreen = ScreenConstructor(
+        androidClassName = "android.widget.EditText",
+        elementName = "Код смс"
+    )
+
 
     val onboardingData = OnboardingData(
 
@@ -59,7 +70,11 @@ object Onboarding {
         androidAccessibilityId = "Войти",
         elementName = "Кнопка Войти"
     )
-
+    val enterPhone = ScreenConstructor (
+        androidXPath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
+                "На него отправим код подтверждения\"]/android.widget.EditText",
+        elementName = "Поле указание номера отправления кода для авторизации"
+    )
 
 
 

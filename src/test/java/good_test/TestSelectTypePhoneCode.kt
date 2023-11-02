@@ -1,8 +1,7 @@
-package test
+package good_test
 
 import GlobalVariables.androidDriver
 import MainActivity
-import TestFunctions.clickToElement
 import groovyjarjarantlr4.v4.runtime.tree.xpath.XPath
 import io.appium.java_client.AppiumBy
 import io.appium.java_client.android.AndroidDriver

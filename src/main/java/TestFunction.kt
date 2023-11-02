@@ -2,18 +2,12 @@ package screens
 import GlobalVariables.androidDriver
 import org.openqa.selenium.WebElement
 import io.appium.java_client.AppiumBy
-import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.interactions.Pause
 import org.openqa.selenium.interactions.PointerInput
 import org.openqa.selenium.interactions.Sequence
-import screens.OnboardingData
 import java.time.Duration.ofMillis
-import kotlin.time.Duration
-import GlobalVariable.androidDriver
 import LocatorType
-import TestFunctions.clickToElement
-import TestFunctions.sendText
-import test.TestSPhoneCodeInput
+
 import java.util.concurrent.TimeUnit
 
 object TestFunctions {
@@ -23,17 +17,43 @@ object TestFunctions {
         element.click()
     }
 
-    fun sendText(locator: String, locatorType: LocatorType, text: String) {
-        val element = findElement(locator, locatorType)
-        element.sendKeys(text)
+    fun sendText (locatorAndroid: String, locatorTypeAndroid: LocatorType, text: String) {
+        chooseLocator (locatorAndroid, locatorTypeAndroid).sendKeys(text)
     }
+    fun checkAvailableElement(
+        locatorAndroid: String,
+        locatorTypeAndroid: LocatorType,
+        locatorIOS: String,
+        locatorTypeIOS: LocatorType
+    ) : Boolean {
 
+        return chooseLocator (
+            locatorAndroid, locatorTypeAndroid,
+            locatorIOS, locatorTypeIOS
+        ).isEnabled
+    }
     fun clearField(locator: String,locatorType: LocatorType) {
         val element = findElement(locator, locatorType)
         element.clear()
     }
 
+    private fun chooseLocator (
+        locatorAndroid: String,
+        locatorTypeAndroid: LocatorType,
+        locatorIOS: String,
+        locatorTypeIOS: LocatorType
+    ) : WebElement {
 
+        val finalLocator: String
+        val finalLocatorType: LocatorType
+        if (platformType == TypeOS.ANDROID) {
+            finalLocator = locatorAndroid
+            finalLocatorType = locatorTypeAndroid
+        } else {
+            finalLocator = locatorIOS
+            finalLocatorType = locatorTypeIOS
+        }
+    }
 
     fun findElement(locator: String, locatorType: LocatorType) : WebElement {
         return when (locatorType) {
@@ -56,7 +76,7 @@ object TestFunctions {
         )
 
         findElement(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME)
-        sendText(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME, code)
+        sendText(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME)
         clickToElement(Onboarding.sPhoneCodeInput.androidXPath, LocatorType.XPATH)
     }
 
@@ -65,7 +85,7 @@ object TestFunctions {
     fun tapByCoordinates(x: Int, y: Int) {
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
 
-        val move = finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), x, y)
+        val move = finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), x, y)
         val tap = finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg())
         val release = finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg())
 
@@ -74,7 +94,7 @@ object TestFunctions {
         sequence.addAction(tap)   // Then press down
         sequence.addAction(release) // Then release
 
-        androidDriver.perform(listOf.asList(sequence))
+        androidDriver.perform(listOf(sequence))
     }
 
     fun swipeOnScreen(startX: Int, startY: Int, moveX: Int, moveY: Int) {
@@ -87,7 +107,7 @@ object TestFunctions {
         sequence.addAction(finger.createPointerMove(ofMillis(1000), PointerInput.Origin.viewport(), moveX, moveY))
         sequence.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()))
 
-        androidDriver.perform(listOf.asList(sequence))
+        androidDriver.perform(listOf(sequence))
     }
 
     fun navigateToMainScreen() {

@@ -1,10 +1,7 @@
 import LocatorType
 import screens.ScreenConstructor
 
-import screens.TestFunctions.tapByCoordinates
 import java.util.concurrent.TimeUnit
-
-package screens
 
 object Delivery_adress {
 

@@ -1,15 +1,19 @@
 package general_cases_for_tests
 
-import GlobalVariable.androidDriver
+import GlobalVariables.androidDriver
 import LocatorType
+import org.apache.commons.lang3.StringUtils.indexOf
+import org.apache.commons.lang3.StringUtils.substring
 import screens.MainScreen.butExit
 import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
 import screens.Onboarding
+import screens.Onboarding.butEnter
+import screens.Onboarding.enterCode
+import screens.Onboarding.enterPhone
 import screens.Onboarding.selectTypePhone
 import screens.Onboarding.selectTypePhoneCode
 import screens.Profile.phoneNumberElement
-import screens.TestFunctions
 import screens.TestFunctions.checkAvailableElement
 import screens.TestFunctions.clickToElement
 import screens.TestFunctions.sendText
@@ -43,40 +47,73 @@ object AuthorizationScenarios {
 
             }
             needAuthorizationUser && !userIsAuthorization -> {
-                sendText(
-                    selectTypePhone.androidXPath,
-                    LocatorType.XPATH,
-                    "9992092278")
-                TimeUnit.SECONDS.sleep(7)
 
                 clickToElement(
-                    selectTypePhoneCode.androidAccessibilityId,
-                    LocatorType.ACCESSIBILITY_ID)
-                TimeUnit.SECONDS.sleep(7)
+                    butEnter.androidAccessibilityId,
+                    LocatorType.ACCESSIBILITY_ID,
 
-                clickToElement(Onboarding.sPhoneCodeInput.androidXPath, LocatorType.XPATH)
+                )
                 TimeUnit.SECONDS.sleep(5)
-                println(Onboarding.onboardingData.fullText)
-                println(Onboarding.onboardingData.regex)
-                println(Onboarding.onboardingData.matchResult)
-                println(Onboarding.onboardingData.code)
-                println(Onboarding.onboardingData.inputField)
-                TestFunctions.inputCode(Onboarding.onboardingData)
 
+                val phone = "9992092278"
+                for (i in 0..9) {
+                    sendText(
+                        enterPhone.androidXPath,
+                        LocatorType.XPATH,
+                        enterPhone.iosClassName,
+                        LocatorType.CLASS_NAME,
+                        phone[i].toString()
+                    )
+                    TimeUnit.SECONDS.sleep(5)
+                }
+                val text = if (platformType == TypeOS.IOS) {
+                    iosDriver.pageSource
+                } else {
+                    androidDriver.pageSource
+                }
 
+                sendText(
+                    enterCode.androidClassName,
+                    LocatorType.CLASS_NAME,
+                    text.substring(
+                        text.indexOf("Введите код из смс&#10;") + 23,
+                        text.indexOf("&#10;+7 (999) 209-22-78&")))
+                TimeUnit.SECONDS.sleep(10)
+
+                clickToElement(
+                    butMenu.androidXPath,
+                    LocatorType.XPATH
+
+                TimeUnit.SECONDS.sleep(5)
             }
+
+
             !needAuthorizationUser && userIsAuthorization -> {
                 clickToElement(
                     butExit.androidAccessibilityId,
-                    LocatorType.ACCESSIBILITY_ID)
+                    LocatorType.ACCESSIBILITY_ID,
+                    butExit.iosAccessibilityId,
+                    LocatorType.ACCESSIBILITY_ID
+                )
+                TimeUnit.SECONDS.sleep(5)
+
                 clickToElement(
                     butMenu.androidXPath,
-                    LocatorType.XPATH)
+                    LocatorType.XPATH,
+                    butMenu.iosClassChain,
+                    LocatorType.IOS_CLASS_CHAIN)
+                TimeUnit.SECONDS.sleep(5)
             }
+
+
+
             !needAuthorizationUser && !userIsAuthorization -> {
                 clickToElement(
                     butMenu.androidXPath,
-                    LocatorType.XPATH)
+                    LocatorType.XPATH,
+                    butMenu.iosClassChain,
+                    LocatorType.IOS_CLASS_CHAIN)
+                TimeUnit.SECONDS.sleep(5)
             }
         }
 

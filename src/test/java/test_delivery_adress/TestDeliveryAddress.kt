@@ -1,4 +1,4 @@
-package tests
+package test_delivery_adress
 
 import Delivery_adress.Address
 import Delivery_adress.butAddress

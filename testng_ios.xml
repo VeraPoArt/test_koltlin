@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite for Android">
+    <parameter name="paramPlatformName" value="IOS"/>
+    <parameter name="paramPlatformVersion" value="17"/>
+    <parameter name="paramDeviceName" value="iPhone15"/>
+    <parameter name="paramUDID" value=""/>
+    <parameter name="paramTimeToSearchElement" value="6"/>
+    <parameter name="paramPathToApp" value="/Users/heads/apps/Runner-intel.app"/>
+    <test verbose="2" preserve-order="true" name="Android tests" parallel="none">
+        <classes>
+            <class name="tests.AuthorizationTests"/>
+            <class name="tests.RegistrationTests"/>
+            <class name="tests.ProfileTests"/>
+            <class name="tests.GoodsTests">
+                <methods>
+                    <include name="testAddingGoodsToFavorites"/>
+                    <include name="testAddingGoodsToComparison"/>
+                    <include name="testAddingItemToCart"/>
+                    <include name="testOrderCreation"/>
+                    <include name="testAddingReviewToProduct"/>
+                    <include name="testAddingNewQuestionToProduct"/>
+                    <include name="testCartMerge"/>
+                    <include name="passageFlowGuide"/>
+                </methods>
+            </class>
+            <class name="tests.ServiceTests">
+                <methods>
+                    <include name="testPassingThroughNestedScreensOfServices"/>
+                    <include name="testAddingStoreToFavorites"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

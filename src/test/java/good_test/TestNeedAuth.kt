@@ -1,4 +1,4 @@
-package tests
+package good_test
 
 import MainActivity
 import general_cases_for_test.Authorization.authorization

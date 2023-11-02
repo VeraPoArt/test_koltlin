@@ -1,4 +1,4 @@
-package general_cases_for_test
+package general_cases_for_tests
 
 import Delivery_adress.deleteAddAddress
 import Delivery_adress.fullAddress
@@ -9,6 +9,7 @@ import Delivery_adress.inputKv
 import Delivery_adress.inputParadnaya
 import LocatorType
 import screens.TestFunctions.clickToElement
+import screens.TestFunctions.findElement
 import screens.TestFunctions.sendText
 import screens.TestFunctions.swipeOnScreen
 import screens.TestFunctions.tapByCoordinates
@@ -17,7 +18,8 @@ import java.util.concurrent.TimeUnit
 object Address {
 
     fun FullAddress(){
-        tapByCoordinates(500, 1300)TimeUnit.SECONDS.sleep(10)
+        tapByCoordinates(500, 1300)
+        TimeUnit.SECONDS.sleep(10)
 
         clickToElement(inputKv.androidXPath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(5)
