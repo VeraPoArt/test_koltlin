@@ -76,11 +76,13 @@ object Onboarding {
 
     val butEnter = ScreenConstructor (
         androidAccessibilityId = "Войти",
+        iosAccessibilityId = "",
         elementName = "Кнопка Войти"
     )
     val enterPhone = ScreenConstructor (
         androidXpath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
                 "На него отправим код подтверждения\"]/android.widget.EditText",
+        iosXpath = "",
         elementName = "Поле указание номера отправления кода для авторизации"
     )
 
