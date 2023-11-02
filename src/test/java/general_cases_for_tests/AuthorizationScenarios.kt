@@ -14,9 +14,6 @@ import screens.Onboarding.butEnter
 import screens.Onboarding.enterCode
 import screens.Onboarding.enterPhone
 import screens.Profile.phoneNumberElement
-import screens.TestFunctions.checkAvailableElement
-import screens.TestFunctions.clickToElement
-import screens.TestFunctions.sendText
 import java.util.concurrent.TimeUnit
 
 object AuthorizationScenarios {
@@ -28,20 +25,29 @@ object AuthorizationScenarios {
 
             clickToElement(
                 butProfile.androidXpath,
+                LocatorType.XPATH,
+                butProfile.iosXpath,
                 LocatorType.XPATH)
             TimeUnit.SECONDS.sleep(7)
-            userIsAuthorization = checkAvailableElement(phoneNumberElement.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+
+            userIsAuthorization = checkAvailableElement(
+                phoneNumberElement.androidAccessibilityId,
+                LocatorType.ACCESSIBILITY_ID,
+                phoneNumberElement.iosXpath,
+                LocatorType.XPATH)
 
 
 
-            userIsAuthorization = checkAvailableElement("locator", LocatorType.XPATH)
         } catch (e: org.openqa.selenium.NoSuchElementException) {
             userIsAuthorization = false
 
         }
         when {
             needAuthorizationUser && userIsAuthorization -> {
-                clickToElement(butMenu.androidXpath,
+                clickToElement(
+                    butMenu.androidXpath,
+                    LocatorType.XPATH,
+                    butMenu.iosXpath,
                     LocatorType.XPATH)
 
 
@@ -51,8 +57,8 @@ object AuthorizationScenarios {
                 clickToElement(
                     butEnter.androidAccessibilityId,
                     LocatorType.ACCESSIBILITY_ID,
-
-                )
+                    butEnter.iosAccessibilityId,
+                    LocatorType.ACCESSIBILITY_ID)
                 TimeUnit.SECONDS.sleep(5)
 
                 val phone = "9992092278"
@@ -60,8 +66,8 @@ object AuthorizationScenarios {
                     sendText(
                         enterPhone.androidXpath,
                         LocatorType.XPATH,
-                        enterPhone.iosClassName,
-                        LocatorType.CLASS_NAME,
+                        enterPhone.iosXpath,
+                        LocatorType.XPATH,
                         phone[i].toString()
                     )
                     TimeUnit.SECONDS.sleep(5)
@@ -75,6 +81,8 @@ object AuthorizationScenarios {
                 sendText(
                     enterCode.androidClassName,
                     LocatorType.CLASS_NAME,
+                    enterCode.iosClassName,
+                    LocatorType.CLASS_NAME)
                     text.substring(
                         text.indexOf("Введите код из смс&#10;") + 23,
                         text.indexOf("&#10;+7 (999) 209-22-78&")))
@@ -82,8 +90,9 @@ object AuthorizationScenarios {
 
                 clickToElement(
                     butMenu.androidXpath,
-                    LocatorType.XPATH
-                )
+                    LocatorType.XPATH,
+                    butMenu.iosXpath,
+                    LocatorType.XPATH)
                 TimeUnit.SECONDS.sleep (5)
             }
 
@@ -92,14 +101,16 @@ object AuthorizationScenarios {
                 clickToElement(
                     butExit.androidAccessibilityId,
                     LocatorType.ACCESSIBILITY_ID,
-                    butExit.iosAccessibilityId
+                    butExit.iosAccessibilityId,
+                    LocatorType.ACCESSIBILITY_ID
                 )
                 TimeUnit.SECONDS.sleep(5)
 
                 clickToElement(
                     butMenu.androidXpath,
                     LocatorType.XPATH,
-                    butMenu.iosClassChain
+                    butMenu.iosClassChain,
+                    LocatorType.XPATH,
                 )
                 TimeUnit.SECONDS.sleep(5)
             }
@@ -110,8 +121,9 @@ object AuthorizationScenarios {
                 clickToElement(
                     butMenu.androidXpath,
                     LocatorType.XPATH,
-                    butMenu.iosClassChain
-                )
+                    butMenu.iosClassChain,
+                    LocatorType.XPATH)
+
                 TimeUnit.SECONDS.sleep(5)
             }
         }
