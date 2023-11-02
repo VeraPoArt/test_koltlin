@@ -1,6 +1,5 @@
 package screens
 
-import io.appium.java_client.AppiumBy.ByClassName
 
 data class ScreenConstructor(
         var androidAccessibilityId: String = "",
