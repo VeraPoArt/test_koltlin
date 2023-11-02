@@ -35,7 +35,7 @@ object TestFunctions {
 
 
 
-    private fun findElement(locator: String, locatorType: LocatorType) : WebElement {
+    fun findElement(locator: String, locatorType: LocatorType) : WebElement {
         return when (locatorType) {
             LocatorType.ID -> androidDriver.findElement(AppiumBy.id(locator))
             LocatorType.XPATH ->  androidDriver.findElement(AppiumBy.xpath(locator))
@@ -49,9 +49,17 @@ object TestFunctions {
         return element.isEnabled
     }
 
-    fun inputCode(data: OnboardingData) {
-        data.inputField.sendKeys(data.code)
+    fun inputCode(data: OnboardingData, code: String) {
+        val inputFieldScreen = ScreenConstructor(
+            androidClassName = "android.widget.EditText",
+            elementName = "Код смс"
+        )
+
+        findElement(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME)
+        sendText(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME, code)
+        clickToElement(Onboarding.sPhoneCodeInput.androidXPath, LocatorType.XPATH)
     }
+
 
 
     fun tapByCoordinates(x: Int, y: Int) {

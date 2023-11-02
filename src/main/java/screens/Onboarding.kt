@@ -35,10 +35,11 @@ object Onboarding {
     )
 
     val selectTypePhone = ScreenConstructor(
-        androidXPath = "//android.view.View[@content-desc=\\\"Укажите телефон\\n\" +\n" +
-                "                \"На него отправим код подтверждения\\\"]/android.widget.EditText",
+        androidXPath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
+                "На него отправим код подтверждения\"]/android.widget.EditText",
         elementName = "Ввод телефона"
     )
+
 
     val selectTypePhoneCode = ScreenConstructor(
         androidAccessibilityId = "Получить код",

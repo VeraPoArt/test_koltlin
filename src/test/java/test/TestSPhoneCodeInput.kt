@@ -42,11 +42,11 @@ class TestSPhoneCodeInput : MainActivity() {
         clickToElement(sPhoneCodeInput.androidXPath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(5)
 
-        println(onboardingData.fullText)
-        println(onboardingData.regex)
-        println(onboardingData.matchResult)
-        println(onboardingData.code)
-        println(onboardingData.inputField)
+        onboardingData.fullText
+        onboardingData.regex
+        onboardingData.matchResult
+        onboardingData.code
+        onboardingData.inputField
 
 
         inputCode(onboardingData)
