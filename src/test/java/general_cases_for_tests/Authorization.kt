@@ -37,7 +37,7 @@ object Authorization {
         }
 
 
-        clickToElement(selectTypePhoneCode.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
+        clickToElement(selectTypePhoneCode.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID, locatorIOS: "", locatorTypeIOS: ""                     )
         TimeUnit.SECONDS.sleep(10)
 
         val text = if (platformType == TypeOS.IOS) {
