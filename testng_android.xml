@@ -19,6 +19,12 @@
                     <include name="testsFour"/>
                 </methods>
             </class>
+            <class name="good_test.TestSelectAddress"/>
+            <class name="good_test.TestSelectPromo"/>
+            <class name="good_test.TestSelectSnacks"/>
+            <class name="good_test.TestSelectTypePhoneCode"/>
+            <class name="test_delivery_adress.TestDeliveryAddress"/>
+
         </classes>
     </test>
 </suite>
