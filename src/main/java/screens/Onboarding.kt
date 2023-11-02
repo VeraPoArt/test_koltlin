@@ -5,11 +5,13 @@ import io.appium.java_client.AppiumBy
 object Onboarding {
     val selectRusButton = ScreenConstructor(
             androidXpath = "//android.view.View[@content-desc=\"Русский\"]",
+            iosXpath = ,
             elementName = "Выбор русского языка на экране онбординга"
     )
 
     val nextButton = ScreenConstructor(
             androidAccessibilityId = "Далее",
+            iosAccessibilityId =
             elementName = "Кнопка Далее на экране"
     )
 
