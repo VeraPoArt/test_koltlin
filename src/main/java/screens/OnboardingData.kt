@@ -3,7 +3,7 @@ package screens
 import screens.Onboarding.sPhoneCodeInput
 
 class OnboardingData {
-    val webElement = TestFunctions.findElement(sPhoneCodeInput.androidXPath, LocatorType.XPATH)
+    val webElement = TestFunctions.findElement(sPhoneCodeInput.androidXpath, LocatorType.XPATH)
     val fullText = webElement.getAttribute("content-desc") // Получаем полное значение content-desc
     val regex = """\b\d{4}\b""".toRegex() // Регулярное выражение для поиска четырехзначного числа
     val matchResult = regex.find(fullText.toString())

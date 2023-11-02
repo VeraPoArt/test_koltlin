@@ -1,7 +1,12 @@
 package general_cases_for_tests
 
 import GlobalVariables.androidDriver
+import GlobalVariables.iosDriver
+import GlobalVariables.platformType
 import LocatorType
+import TestFunctions.checkAvailableElement
+import TestFunctions.clickToElement
+import TestFunctions.sendText
 import screens.MainScreen.butExit
 import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
@@ -22,7 +27,7 @@ object AuthorizationScenarios {
         try {
 
             clickToElement(
-                butProfile.androidXPath,
+                butProfile.androidXpath,
                 LocatorType.XPATH)
             TimeUnit.SECONDS.sleep(7)
             userIsAuthorization = checkAvailableElement(phoneNumberElement.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
@@ -36,7 +41,7 @@ object AuthorizationScenarios {
         }
         when {
             needAuthorizationUser && userIsAuthorization -> {
-                clickToElement(butMenu.androidXPath,
+                clickToElement(butMenu.androidXpath,
                     LocatorType.XPATH)
 
 
@@ -53,9 +58,9 @@ object AuthorizationScenarios {
                 val phone = "9992092278"
                 for (i in 0..9) {
                     sendText(
-                        enterPhone.androidXPath,
+                        enterPhone.androidXpath,
                         LocatorType.XPATH,
-                        enterPhone.iosClassName,
+                        enterPhone.iosClassChain,
                         LocatorType.CLASS_NAME,
                         phone[i].toString()
                     )
@@ -76,10 +81,10 @@ object AuthorizationScenarios {
                 TimeUnit.SECONDS.sleep(10)
 
                 clickToElement(
-                    butMenu.androidXPath,
+                    butMenu.androidXpath,
                     LocatorType.XPATH
-
-                TimeUnit.SECONDS.sleep(5)
+                )
+                TimeUnit.SECONDS.sleep (5)
             }
 
 
@@ -92,7 +97,7 @@ object AuthorizationScenarios {
                 TimeUnit.SECONDS.sleep(5)
 
                 clickToElement(
-                    butMenu.androidXPath,
+                    butMenu.androidXpath,
                     LocatorType.XPATH,
                     butMenu.iosClassChain
                 )
@@ -103,7 +108,7 @@ object AuthorizationScenarios {
 
             !needAuthorizationUser && !userIsAuthorization -> {
                 clickToElement(
-                    butMenu.androidXPath,
+                    butMenu.androidXpath,
                     LocatorType.XPATH,
                     butMenu.iosClassChain
                 )

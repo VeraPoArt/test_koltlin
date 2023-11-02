@@ -4,6 +4,7 @@ import MainActivity
 import org.testng.annotations.Test
 import java.util.concurrent.TimeUnit
 import LocatorType
+import TestFunctions.clickToElement
 import screens.Onboarding.nextButton
 import screens.Onboarding.selectDeliveryButton
 import screens.Onboarding.selectRusButton

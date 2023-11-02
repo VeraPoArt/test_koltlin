@@ -1,6 +1,11 @@
 package general_cases_for_tests
 
+import GlobalVariables.androidDriver
+import GlobalVariables.iosDriver
+import GlobalVariables.platformType
 import LocatorType
+import TestFunctions.clickToElement
+import TestFunctions.sendText
 
 import screens.MainScreen.butMenu
 import screens.MainScreen.butProfile
@@ -15,7 +20,7 @@ import java.util.concurrent.TimeUnit
 object Authorization {
 
     fun authorization(phoneNumber: String) {
-        clickToElement(butProfile.androidXPath, LocatorType.XPATH)
+        clickToElement(butProfile.androidXpath, LocatorType.XPATH)
         TimeUnit.SECONDS.sleep(7)
 
         clickToElement(Onboarding.butEnter.androidAccessibilityId, LocatorType.ACCESSIBILITY_ID)
@@ -26,7 +31,7 @@ object Authorization {
             sendText(
                 selectTypePhone.androidXpath,
                 LocatorType.XPATH,
-                selectTypePhone.iosClassName,
+                selectTypePhone.iosClassChain,
                 LocatorType.CLASS_NAME,
                 phone[i].toString()
             )
@@ -54,7 +59,7 @@ object Authorization {
         TimeUnit.SECONDS.sleep(10)
 
 
-        clickToElement(butMenu.androidXPath, LocatorType.XPATH)
+        clickToElement(butMenu.androidXpath, LocatorType.XPATH)
 
 
     }

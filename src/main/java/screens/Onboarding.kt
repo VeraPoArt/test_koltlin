@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumBy
 
 object Onboarding {
     val selectRusButton = ScreenConstructor(
-            androidXPath = "//android.view.View[@content-desc=\"Русский\"]",
+            androidXpath = "//android.view.View[@content-desc=\"Русский\"]",
             elementName = "Выбор русского языка на экране онбординга"
     )
 
@@ -35,7 +35,7 @@ object Onboarding {
     )
 
     val selectTypePhone = ScreenConstructor(
-        androidXPath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
+        androidXpath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
                 "На него отправим код подтверждения\"]/android.widget.EditText",
         elementName = "Ввод телефона"
     )
@@ -47,12 +47,12 @@ object Onboarding {
     )
 
     val enterCode = ScreenConstructor (
-        androidClassName = "android.widget.EditText",
+        androidXpath = "android.widget.EditText",
         elementName = "Поле ввода кода авторизации"
     )
 
     val sPhoneCodeInput = ScreenConstructor(
-        androidXPath = "//android.view.View[contains(@content-desc, 'Введите код из смс')]",
+        androidXpath = "//android.view.View[contains(@content-desc, 'Введите код из смс')]",
         elementName = "Код смс"
     )
 
@@ -71,7 +71,7 @@ object Onboarding {
         elementName = "Кнопка Войти"
     )
     val enterPhone = ScreenConstructor (
-        androidXPath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
+        androidXpath = "//android.view.View[@content-desc=\"Укажите телефон\n" +
                 "На него отправим код подтверждения\"]/android.widget.EditText",
         elementName = "Поле указание номера отправления кода для авторизации"
     )

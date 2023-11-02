@@ -1,13 +1,15 @@
-package screens
+
 import GlobalVariables.androidDriver
+import GlobalVariables.iosDriver
 import GlobalVariables.platformType
+import TestFunctions.chooseLocator
+import TestFunctions.clickToElement
 import org.openqa.selenium.WebElement
 import io.appium.java_client.AppiumBy
 import org.openqa.selenium.interactions.Pause
 import org.openqa.selenium.interactions.PointerInput
 import org.openqa.selenium.interactions.Sequence
 import java.time.Duration.ofMillis
-import LocatorType
 
 import java.util.concurrent.TimeUnit
 
@@ -78,7 +80,7 @@ object TestFunctions {
         element.clear()
     }
 
-    private fun chooseLocator (
+    fun chooseLocator (
         locatorAndroid: String,
         locatorTypeAndroid: LocatorType,
         locatorIOS: String,
@@ -94,32 +96,60 @@ object TestFunctions {
             finalLocator = locatorIOS
             finalLocatorType = locatorTypeIOS
         }
-    }
 
-    fun findElement(locator: String, locatorType: LocatorType) : WebElement {
+        return findElement(finalLocator, finalLocatorType)
+    }
+}
+
+    fun findElement(locator: String, locatorType: LocatorType) : WebElement{
         return when (locatorType) {
-            LocatorType.ID -> androidDriver.findElement(AppiumBy.id(locator))
-            LocatorType.XPATH ->  androidDriver.findElement(AppiumBy.xpath(locator))
-            LocatorType.ACCESSIBILITY_ID -> androidDriver.findElement(AppiumBy.accessibilityId(locator))
-            LocatorType.CLASS_NAME -> androidDriver.findElement(AppiumBy.className(locator))
+            LocatorType.ID -> {
+                if (platformType == TypeOS.ANDROID) {
+                    androidDriver.findElement(AppiumBy.id(locator))
+                } else {
+                    iosDriver.findElement(AppiumBy.id(locator))
+                }
+            }
+            LocatorType.XPATH -> {
+                if (platformType == TypeOS.ANDROID) {
+                    androidDriver.findElement(AppiumBy.xpath(locator))
+                } else {
+                    iosDriver.findElement(AppiumBy.id(locator))
+                }
+            }
+            LocatorType.ACCESSIBILITY_ID -> {
+                if (platformType == TypeOS.ANDROID) {
+                    androidDriver.findElement(AppiumBy.accessibilityId(locator))
+                } else {
+                    iosDriver.findElement(AppiumBy.accessibilityId(locator))
+                }
+            }
+            LocatorType.CLASS_NAME -> {
+                if (platformType == TypeOS.ANDROID) {
+                    androidDriver.findElement(AppiumBy.className(locator))
+                } else {
+                    iosDriver.findElement(AppiumBy.className(locator))
+                }
+            }
+
+            LocatorType.IOS_CLASS_CHAIN -> iosDriver.findElement(AppiumBy.iOSClassChain(locator))
+            LocatorType.IOS_PREDICATE_STRING -> iosDriver.findElement(AppiumBy.iOSNsPredicateString(locator))
+            LocatorType.DEFAULT -> TODO()
         }
     }
 
-    fun checkAvailableElement(locator: String,locatorType: LocatorType) : Boolean {
-        val element = findElement(locator, locatorType)
-        return element.isEnabled
+    fun checkAvailableElement(locatorAndroid: String,
+                              locatorTypeAndroid: LocatorType,
+                              locatorIOS: String,
+                              locatorTypeIOS: LocatorType
+    ) : Boolean {
+
+        return chooseLocator (
+            locatorAndroid, locatorTypeAndroid,
+            locatorIOS, locatorTypeIOS
+        ).isEnabled
     }
 
-    fun inputCode(data: OnboardingData, code: String) {
-        val inputFieldScreen = ScreenConstructor(
-            androidClassName = "android.widget.EditText",
-            elementName = "Код смс"
-        )
-
-        findElement(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME)
-        sendText(inputFieldScreen.androidClassName, LocatorType.CLASS_NAME)
-        clickToElement(Onboarding.sPhoneCodeInput.androidXPath, LocatorType.XPATH)
-    }
 
 
 
@@ -135,8 +165,11 @@ object TestFunctions {
         sequence.addAction(tap)   // Then press down
         sequence.addAction(release) // Then release
 
-        androidDriver.perform(listOf(sequence))
-    }
+        if (platformType == TypeOS.IOS) {
+            iosDriver.perform(listOf(sequence))
+        } else {
+            androidDriver.perform(listOf(sequence))
+        }
 
     fun swipeOnScreen(startX: Int, startY: Int, moveX: Int, moveY: Int) {
         val finger = PointerInput(PointerInput.Kind.TOUCH, "finger")
@@ -148,7 +181,11 @@ object TestFunctions {
         sequence.addAction(finger.createPointerMove(ofMillis(1000), PointerInput.Origin.viewport(), moveX, moveY))
         sequence.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()))
 
-        androidDriver.perform(listOf(sequence))
+        if (platformType == TypeOS.IOS) {
+            iosDriver.perform(listOf(sequence))
+        } else {
+            androidDriver.perform(listOf(sequence))
+        }
     }
 
     fun navigateToMainScreen() {
