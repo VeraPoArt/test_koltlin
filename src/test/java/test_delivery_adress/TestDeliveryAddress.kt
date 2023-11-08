@@ -9,9 +9,11 @@ import Delivery_adress.inputAddress
 import Delivery_adress.screenAddress
 import LocatorType
 import MainActivity
+import TestFunctions.clickToElement
 import general_cases_for_test.Address.FullAddress
 import general_cases_for_test.Address.deleteAddress
 import general_cases_for_test.Address.swipeElementToDown
+import general_cases_for_tests.Address.swipeElementToDown
 import general_cases_for_tests.AuthorizationScenarios.checkAuthorizationUser
 import org.testng.annotations.Test
 import screens.MainScreen.butMenu
